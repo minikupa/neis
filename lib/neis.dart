@@ -56,11 +56,10 @@ class Neis {
   }
 
   Future<List> getMeals(int year, int month) {
-   return fetchMeals(regionCode, school, key, year, month);
+    return fetchMeals(regionCode, school, key, year, month);
   }
 
   Future<List> getSchedules(int year, int month) {
     return fetchSchedules(regionCode, school, key, year, month);
   }
-
 }
