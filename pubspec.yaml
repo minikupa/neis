@@ -1,5 +1,5 @@
 name: neis
-description: A new Flutter project.
+description: neis에서 시간표, 일정, 급식을 불러오는 플러그인 입니다.
 version: 1.0.0
 homepage: https://github.com/minikupa/neis
 
