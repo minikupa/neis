@@ -9,7 +9,6 @@ List parseSchedules(http.Response response, DateTime lastDay) {
 
   for (var element in parsed) {
     int day = int.parse(element['AA_YMD'].substring(6)) - 1;
-
     schedule[day].add(element['EVENT_NM']);
   }
 
