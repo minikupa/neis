@@ -1,4 +1,4 @@
-import 'meal.dart';
+import 'meal/meal.dart';
 import 'neis_platform_interface.dart';
 import 'schedule/schedule.dart';
 
