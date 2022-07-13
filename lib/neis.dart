@@ -1,4 +1,6 @@
-import 'meal.dart';
+import 'package:neis/meal/meal.dart';
+import 'package:neis/timetable/timetable.dart';
+
 import 'neis_platform_interface.dart';
 import 'schedule/schedule.dart';
 
@@ -42,8 +44,11 @@ enum Region {
   jeju
 }
 
+enum SchoolType { els, mis, his }
+
 class Neis {
   final Region region;
+  final SchoolType schoolType;
   final String key, school;
   late String regionCode;
 
@@ -51,7 +56,7 @@ class Neis {
     return NeisPlatform.instance.getPlatformVersion();
   }
 
-  Neis(this.region, this.school, this.key) {
+  Neis(this.region, this.school, this.schoolType, this.key) {
     regionCode = regionCodes[region.index];
   }
 
@@ -61,5 +66,9 @@ class Neis {
 
   Future<List> getSchedules(int year, int month) {
     return fetchSchedules(regionCode, school, key, year, month);
+  }
+
+  Future<List> getTimetables(int grade, int classNumber, DateTime first) {
+    return fetchTimetables(regionCode, school, schoolType, key, grade, classNumber, first);
   }
 }

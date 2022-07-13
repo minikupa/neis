@@ -13,16 +13,16 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  final _neis = Neis(Region.chungnam, "8140098", "key");
+  final _neis =
+      Neis(Region.chungnam, "8140098", SchoolType.his, "");
   String meal = "";
 
   @override
   void initState() {
     super.initState();
-    _neis.getSchedules(2022, 7).then((value) {
+    _neis.getTimetables(2, 4, DateTime.now()).then((value) {
       setState(() {
         meal = value.toString();
-        print(value[0]);
       });
     });
   }
