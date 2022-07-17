@@ -5,7 +5,7 @@ import 'package:intl/intl.dart';
 
 List parseMeals(http.Response response, DateTime lastDay) {
   List parsed = json.decode(response.body)['mealServiceDietInfo'][1]['row'];
-  List<List> meals = List.generate(lastDay.day, (_) => List.generate(3, (_) => []));
+  List<List> meals = List.generate(lastDay.day, (_) => List.generate(3, (_) => ""));
 
   for (var element in parsed) {
     int day = int.parse(element['MLSV_YMD'].substring(6)) - 1;
