@@ -14,13 +14,13 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   final _neis =
-      Neis(Region.chungnam, "8140098", SchoolType.his, "");
+      Neis(Region.chungnam, "8222021", SchoolType.els, "");
   String meal = "";
 
   @override
   void initState() {
     super.initState();
-    _neis.getTimetables(2, 4, DateTime.now()).then((value) {
+    _neis.getTimetables(1, 1, DateTime.now()).then((value) {
       setState(() {
         meal = value.toString();
       });

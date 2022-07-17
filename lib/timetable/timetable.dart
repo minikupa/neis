@@ -5,8 +5,8 @@ import 'package:http/http.dart' as http;
 import 'package:intl/intl.dart';
 import 'package:neis/neis.dart';
 
-List parseSchedules(http.Response response, int firstDay) {
-  List parsed = json.decode(response.body)['hisTimetable'][1]['row'];
+List parseSchedules(http.Response response, SchoolType schoolType, int firstDay) {
+  List parsed = json.decode(response.body)['${describeEnum(schoolType)}Timetable'][1]['row'];
   List timetables = List.generate(5, (_) => List.generate(8, (_) => ""));
 
   for (var element in parsed) {
@@ -35,7 +35,7 @@ Future<List> fetchTimetables(
   if (response.statusCode == 200) {
     var result = json.decode(response.body);
     if (result['RESULT'] == null) {
-      return parseSchedules(response, first.day);
+      return parseSchedules(response, schoolType, first.day);
     } else {
       throw Exception();
     }
